@@ -21,7 +21,7 @@ require('lazy').setup({
     { import = 'plugins' },
   },
   -- colorscheme that will be used when installing plugins
-  install = { colorscheme = { 'tokyonight-moon' } },
+  install = { colorscheme = { 'catppuccin' } },
   -- Silence config change alerts
   change_detection = { notify = false },
   -- Disable LuaRocks support completely
