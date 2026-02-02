@@ -14,6 +14,12 @@ return {
           ['<C-j>'] = function(...)
             return require('telescope.actions').move_selection_next(...)
           end,
+          -- Escape key closes Telescope in Insert mode, bypass Normal
+          ['<Esc>'] = function(...)
+            return require('telescope.actions').close(...)
+          end,
+          -- Clear prompt on Ctrl-U
+          ['<C-u>'] = false
         },
       },
     },
