@@ -21,7 +21,7 @@ return {
     opts = {
       flavour = 'macchiato',  -- latte, frappe, macchiato, mocha
       -- transparent_background = true,
-      auto_integrations = true,
+      -- auto_integrations = true,
     },
     config = function(_, opts)
       require('catppuccin').setup(opts)
