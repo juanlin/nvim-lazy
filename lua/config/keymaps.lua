@@ -8,4 +8,3 @@ vim.keymap.set('n', '<C-k>', '<C-w>k', { desc = 'Go to the up window' })
 vim.keymap.set('n', '<C-l>', '<C-w>l', { desc = 'Go to the right window' })
 
 vim.keymap.set('n', '<leader>e', '<Cmd>Ex<CR>', { desc = 'File Explorer' })
-vim.keymap.set('n', '<leader>w', '<C-w>', { desc = 'window' } )
