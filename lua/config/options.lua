@@ -14,7 +14,7 @@ o.smartcase = true
 o.number = true
 o.relativenumber = true
 o.cursorline = true
-o.cursorlineopt = 'number'  -- only highlight number
+o.cursorlineopt = 'screenline,number'
 o.scrolloff = 2
 
 o.splitright = true
