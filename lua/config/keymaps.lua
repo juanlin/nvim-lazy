@@ -1,5 +1,11 @@
 vim.g.mapleader = ' '
 vim.keymap.set('n', '<leader>e', '<Cmd>Ex<CR>', { desc = 'File Explorer' })
+vim.keymap.set('n', '<leader>w', '<C-w>', { desc = 'window', })
+
+-- Telescope
+vim.keymap.set('n', '<leader>ff', '<Cmd>Telescope find_files<CR>', { desc = 'Find File' })
+vim.keymap.set('n', '<leader>fg', '<Cmd>Telescope live_grep<CR>', { desc = 'Live Grep' })
+vim.keymap.set('n', '<leader>fb', '<Cmd>Telescope buffers<CR>', { desc = 'Buffers' })
 
 vim.keymap.set('n', '<Esc>', '<Cmd>nohlsearch<CR>')
 
