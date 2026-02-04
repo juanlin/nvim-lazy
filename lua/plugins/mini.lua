@@ -9,6 +9,7 @@ return {
   },
   { -- Surround support
     'nvim-mini/mini.surround',
+    version = false,
     opts = {
       -- Add g- prefix to avoid clobbering (lazyvim)
       mappings = {
@@ -21,5 +22,10 @@ return {
         update_n_lines = 'gsn',
       },
     },
+  },
+  { -- Command line autocmp, autocorrect, peeking
+    'nvim-mini/mini.cmdline',
+    version = false,
+    opts = {},
   },
 }
