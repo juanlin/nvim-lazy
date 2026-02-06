@@ -10,6 +10,7 @@ return {
   { -- Surround support
     'nvim-mini/mini.surround',
     version = false,
+    event = 'VeryLazy',
     opts = {
       -- Add g- prefix to avoid clobbering (lazyvim)
       mappings = {
