@@ -3,7 +3,7 @@ return {
   lazy = false,
   build = ':TSUpdate',
   branch = 'main',
-
+  event = { 'BufReadPost', 'BufNewFile', 'VeryLazy' },
   opts = {
     ensure_installed = {
       'lua', 'rust', 'python', 'go',
