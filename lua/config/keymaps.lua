@@ -1,18 +1,19 @@
-local map = vim.keymap.set
-
 vim.g.mapleader = ' '
-map('n', '<leader>e', '<Cmd>Ex<CR>', { desc = 'File Explorer' })
-map('n', '<leader>w', '<C-w>', { desc = 'window', })
 
--- Telescope
-map('n', '<leader>ff', '<Cmd>Telescope find_files<CR>', { desc = 'Find File' })
-map('n', '<leader>fg', '<Cmd>Telescope live_grep<CR>', { desc = 'Live Grep' })
-map('n', '<leader>fb', '<Cmd>Telescope buffers<CR>', { desc = 'Buffers' })
+local map = vim.keymap.set
+local nmap_leader = function(suffix, rhs, desc)
+  map('n', '<leader>'..suffix, rhs, { desc = desc })
+end
 
-map('n', '<Esc>', '<Cmd>nohlsearch<CR>')
+nmap_leader('e', '<Cmd>Ex<CR>', 'File Explorer')
+nmap_leader('w', '<C-w>', '+Window commands')
+
+-- Telescope, see telescope.lua
 
 -- Window navigation
-map('n', '<C-h>', '<C-w>h', { desc = 'Go to the left window' })
-map('n', '<C-j>', '<C-w>j', { desc = 'Go to the down window' })
-map('n', '<C-k>', '<C-w>k', { desc = 'Go to the up window' })
-map('n', '<C-l>', '<C-w>l', { desc = 'Go to the right window' })
+map('n', '<C-h>', '<C-w>h', { desc = 'Focus left' })
+map('n', '<C-j>', '<C-w>j', { desc = 'Focus down' })
+map('n', '<C-k>', '<C-w>k', { desc = 'Focus up' })
+map('n', '<C-l>', '<C-w>l', { desc = 'Focus right' })
+
+map('n', '<Esc>', '<Cmd>nohlsearch<CR>')
