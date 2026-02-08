@@ -3,12 +3,6 @@ wk.add({
   -- name group keys
   { '<leader>f', group = 'Telescope' },
   { 'gs', group = 'Surround', mode = { 'n', 'v' } },
-  -- register as group with more subsequent keys
-  { '<leader>w', proxy = '<C-w>' },
+  -- set as proxy to <C-w> (do not re-map to avoid issues)
+  { '<leader>w', proxy = '<C-w>', group = 'Window commands' },
 })
-
--- Handle <Leader>w registered as one key (when hit quickly)
-local function myfunc()
-  wk.show({ keys = '<C-w>', loop = false, delay = 0, })
-end
-vim.keymap.set('n', '<leader>w', myfunc, { desc = 'Window commands' })
