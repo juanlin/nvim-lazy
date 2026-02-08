@@ -6,6 +6,6 @@ return {
   --   'brenoprata10/nvim-highlight-colors', opts = {}, event = 'VeryLazy',
   -- },
   { -- Show key hints
-    'folke/which-key.nvim', opts = { delay = 1000 }
+    'folke/which-key.nvim', opts = { delay = 250 }
   },
 }

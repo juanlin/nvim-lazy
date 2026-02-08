@@ -5,7 +5,7 @@ wk.add({
 })
 
 local function myfunc()
-  wk.show({ keys = '<C-w>', loop = false, delay = 1000, })
+  wk.show({ keys = '<C-w>', loop = false, delay = 250, })
 end
 
 -- Passing <C-w> directly will not trigger popup when hitting <leader>w
