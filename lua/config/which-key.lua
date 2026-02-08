@@ -2,6 +2,7 @@ local wk = require('which-key')
 wk.add({
   -- name group keys
   { '<leader>f', group = 'Telescope' },
+  { 'gs', group = 'Surround', mode = { 'n', 'v' } },
   -- register as group with more subsequent keys
   { '<leader>w', proxy = '<C-w>' },
 })
