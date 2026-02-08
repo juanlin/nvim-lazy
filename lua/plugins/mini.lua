@@ -28,6 +28,7 @@ return {
   { -- Command line autocmp, autocorrect, peeking
     'nvim-mini/mini.cmdline',
     version = false,
+    event = 'CmdlineEnter',
     opts = {},
   },
 }
