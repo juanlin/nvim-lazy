@@ -6,6 +6,10 @@ local function initials(mode)
   return mode:sub(1, 1)
 end
 
+local function width_gt(limit)
+  return vim.api.nvim_win_get_width(0) > limit
+end
+
 return {
   'nvim-lualine/lualine.nvim',
   dependencies = { 'nvim-mini/mini.icons' },
@@ -23,12 +27,17 @@ return {
         {
           'mode',
           fmt = function(str)
-            if vim.api.nvim_win_get_width(0) > 70 then
+            if width_gt(70) then
               return str
             end
             return initials(str)
           end,
         },
+      },
+      lualine_x = {
+        { 'encoding', cond = function() return width_gt(75) end },
+        { 'fileformat', cond = function() return width_gt(70) end },
+        { 'filetype', cond = function() return width_gt(60) end },
       },
     },
   },
