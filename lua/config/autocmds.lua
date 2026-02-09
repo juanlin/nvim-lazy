@@ -16,11 +16,11 @@ vim.api.nvim_create_autocmd('BufWinEnter', {
   callback = function()
     local ft = vim.bo.filetype
 
-    print(ft)
-    if vim.fn.line('.') > 1   -- specified via 'nvim file +xx'
-      or ft:find('commit')
+    -- print(vim.inspect(ft))
+    if ft:find('commit')
       or vim.tbl_contains({ 'xxd', 'gitrebase', 'tutor'}, ft)
-      or vim.wo.diff then
+      or vim.wo.diff
+      or vim.fn.line('.') > 1 then
       return
     end
 
@@ -28,7 +28,7 @@ vim.api.nvim_create_autocmd('BufWinEnter', {
     local lcount = vim.api.nvim_buf_line_count(0)
 
     if mark[1] > 0 and mark[1] <= lcount then
-      vim.api.nvim_win_set_cursor(0, mark)
+      pcall(vim.api.nvim_win_set_cursor, 0, mark)
     end
   end,
 })
