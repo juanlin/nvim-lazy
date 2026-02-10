@@ -5,3 +5,5 @@ require('config.lazy')
 vim.lsp.enable({
   'luals',
 })
+
+vim.o.winborder = 'rounded'
