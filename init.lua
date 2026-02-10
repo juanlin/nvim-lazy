@@ -7,3 +7,7 @@ vim.lsp.enable({
 })
 
 vim.o.winborder = 'rounded'
+
+vim.diagnostic.config({
+  virtual_lines = true,
+})
