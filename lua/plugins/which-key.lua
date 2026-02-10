@@ -7,7 +7,7 @@ return {
       { '<leader>f', group = 'Telescope' },
       { 'gs', group = 'Surround', mode = { 'n', 'v' } },
 
-      -- set as proxy to <C-w> (do not re-map to avoid issues)
+      -- set as proxy to <C-w> (do not map elsewhere to avoid issues)
       { '<leader>w', proxy = '<C-w>', group = 'Window commands' },
     },
     preset = 'helix', -- classic, modern, helix
