@@ -12,4 +12,11 @@ return {
     },
     preset = 'helix', -- classic, modern, helix
   },
+  config = function(_, opts)
+    local wk = require('which-key')
+    wk.setup(opts)
+    vim.keymap.set('n', '<C-w><Space>', function()
+      wk.show({ keys = '<C-w>', loop = true, })
+    end, { desc = 'Sticky Mode' })
+  end
 }
