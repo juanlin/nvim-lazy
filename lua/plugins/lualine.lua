@@ -19,7 +19,7 @@ return {
       section_separators = '',
       component_separators = '',
       refresh = {
-        statusline = 25,  -- default 100ms
+        statusline = 75,  -- default 100ms
       }
     },
     sections = {
