@@ -10,5 +10,6 @@ return {
       -- set as proxy to <C-w> (do not re-map to avoid issues)
       { '<leader>w', proxy = '<C-w>', group = 'Window commands' },
     },
+    preset = 'helix', -- classic, modern, helix
   },
 }
