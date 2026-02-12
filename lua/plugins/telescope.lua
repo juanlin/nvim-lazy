@@ -18,8 +18,6 @@ return {
           ['<Esc>'] = function(...)
             return require('telescope.actions').close(...)
           end,
-          -- Clear prompt on Ctrl-U
-          ['<C-u>'] = false
         },
       },
     },
