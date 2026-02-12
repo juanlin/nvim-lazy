@@ -26,3 +26,9 @@ o.splitbelow = true
 
 -- Customize return messages
 o.shortmess:append{ I = true } -- suppress intro message
+
+-- Persistent Undo
+local undodir = vim.fn.stdpath('cache') .. '/undo'
+vim.fn.mkdir(undodir, 'p')
+o.undodir = undodir
+o.undofile = true
