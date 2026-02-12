@@ -34,6 +34,11 @@ return {
           end,
         },
       },
+      lualine_b = {
+        { 'branch', icon = '' },
+        { 'diff' },
+        { 'diagnostics' },
+      },
       lualine_x = {
         { 'encoding', cond = function() return width_gt(75) end },
         { 'fileformat', cond = function() return width_gt(70) end },
