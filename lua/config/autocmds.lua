@@ -32,3 +32,13 @@ vim.api.nvim_create_autocmd('BufWinEnter', {
     end
   end,
 })
+
+-- Highlight when yanking (copying) text
+vim.api.nvim_create_autocmd('TextYankPost', {
+  group = general_settings,
+  callback = function()
+    vim.hl.on_yank({
+      -- timeout = 300,
+    })
+  end,
+})
