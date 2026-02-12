@@ -10,6 +10,8 @@ return {
 
       -- hide mappings for cleaner menus
       { '<leader>P', hidden = true },
+      { '<C-w>d', hidden = true },
+      { '<C-w><C-d>', hidden = true },
 
       -- set as proxy to <C-w> (do not map elsewhere to avoid issues)
       { '<leader>w', proxy = '<C-w>', group = 'Window commands' },
