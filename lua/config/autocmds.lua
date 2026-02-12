@@ -1,7 +1,7 @@
 local general_settings = vim.api.nvim_create_augroup('GeneralSettings', { clear = true })
 
--- Don't auto-insert comments on new lines
 vim.api.nvim_create_autocmd('FileType', {
+  desc = "Don't auto-insert comments on new lines",
   group = general_settings,
   pattern = '*',
   callback = function()
@@ -9,8 +9,8 @@ vim.api.nvim_create_autocmd('FileType', {
   end,
 })
 
--- Return cursor to last known position
 vim.api.nvim_create_autocmd('BufWinEnter', {
+  desc = 'Return cursor to last known position',
   group = general_settings,
   pattern = '*',
   callback = function()
@@ -33,8 +33,8 @@ vim.api.nvim_create_autocmd('BufWinEnter', {
   end,
 })
 
--- Highlight when yanking (copying) text
 vim.api.nvim_create_autocmd('TextYankPost', {
+  desc = 'Highlight when yanking (copying) text',
   group = general_settings,
   callback = function()
     vim.hl.on_yank({
