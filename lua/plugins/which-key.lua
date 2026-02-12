@@ -6,8 +6,10 @@ return {
       -- name group keys
       { '<leader>f', group = 'Telescope' },
       { '<leader>b', group = 'Buffers' },
-      { '<leader>P', hidden = true },
       { 'gs', group = 'Surround', mode = { 'n', 'v' } },
+
+      -- hide mappings for cleaner menus
+      { '<leader>P', hidden = true },
 
       -- set as proxy to <C-w> (do not map elsewhere to avoid issues)
       { '<leader>w', proxy = '<C-w>', group = 'Window commands' },
