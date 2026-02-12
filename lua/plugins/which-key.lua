@@ -21,6 +21,8 @@ return {
   config = function(_, opts)
     local wk = require('which-key')
     wk.setup(opts)
+
+    -- pressing <Space> enters Sticky mode (Hydra mode)
     vim.keymap.set('n', '<C-w><Space>', function()
       wk.show({ keys = '<C-w>', loop = true, })
     end, { desc = 'Sticky Mode' })
