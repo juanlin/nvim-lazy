@@ -1,5 +1,5 @@
 return {
-  {
+  { -- Icons support
     'nvim-mini/mini.icons',
     version = false,  -- install from main branch
     lazy = true,
@@ -8,7 +8,7 @@ return {
       MiniIcons.mock_nvim_web_devicons()
     end
   },
-  { -- Surround support
+  { -- Surround keys
     'nvim-mini/mini.surround',
     version = false,
     event = 'VeryLazy',
