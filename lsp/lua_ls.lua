@@ -1,5 +1,5 @@
--- see :h lsp-quickstart
 -- equivalent to vim.lsp.config(...)
+-- see :h lsp-quickstart
 return {
   cmd = { 'lua-language-server' },
   root_markers = { { '.luarc.json', '.luarc.jsonc' }, '.git' },
