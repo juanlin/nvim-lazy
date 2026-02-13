@@ -5,7 +5,6 @@ return {
     spec = {
       -- name group keys
       { '<leader>f', group = 'Telescope' },
-      { '<leader>b', group = 'Buffers' },
       { 'gs', group = 'Surround', mode = { 'n', 'v' } },
 
       -- hide mappings for cleaner menus
