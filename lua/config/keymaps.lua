@@ -4,6 +4,7 @@ local map = vim.keymap.set
 
 -- Leader keybinds
 map('n', '<leader>e', '<Cmd>Ex<CR>', { desc = 'File Explorer' })
+map('n', '<leader>c', '<Cmd>HighlightColors Toggle<CR>', { desc = 'Toggle CSS colors' })
 
 -- Telescope, see telescope.lua
 
