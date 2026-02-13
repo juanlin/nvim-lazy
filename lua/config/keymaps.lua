@@ -4,7 +4,6 @@ local map = vim.keymap.set
 
 -- Leader keybinds
 map('n', '<leader>e', '<Cmd>Ex<CR>', { desc = 'File Explorer' })
-map('n', '<leader>w', '<C-w>', { desc = '+Window commands' })
 
 -- Telescope, see telescope.lua
 
