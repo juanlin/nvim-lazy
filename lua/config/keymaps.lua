@@ -2,9 +2,10 @@ vim.g.mapleader = ' '
 
 local map = vim.keymap.set
 
--- Leader keybinds
+-- General keybinds
 map('n', '<leader>e', '<Cmd>Ex<CR>', { desc = 'File Explorer' })
 map('n', '<leader>c', '<Cmd>HighlightColors Toggle<CR>', { desc = 'Toggle CSS colors' })
+map('n', '<Esc>', '<Cmd>nohlsearch<CR>')
 
 -- Telescope, see telescope.lua
 
@@ -18,6 +19,3 @@ map('n', '<C-l>', '<C-w>l', { desc = 'Focus right' })
 map({ 'n', 'x' }, '<leader>y', '"+y', { desc = 'Copy to Clipboard' })
 map({ 'n', 'x' }, '<leader>p', '"+p', { desc = 'Paste Clipboard' })
 map({ 'n', 'x' }, '<leader>P', '"+P', { desc = 'Paste Clipboard before' })
-
--- Other
-map('n', '<Esc>', '<Cmd>nohlsearch<CR>')
