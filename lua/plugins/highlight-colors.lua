@@ -5,9 +5,14 @@ return  {
     render = 'foreground',  -- background, foreground, virtual
   },
   config = function(_, opts)
-    local hlightColors = require('nvim-highlight-colors')
-    hlightColors.setup(opts)
-    hlightColors.turnOff()
+    local hlc = require('nvim-highlight-colors')
+    hlc.setup(opts)
+    hlc.turnOff()
   end,
-  event = 'VeryLazy',
+  keys = {
+    { '<leader>c',
+      '<Cmd>HighlightColors Toggle<CR>',
+      desc = 'Toggle CSS colors',
+    },
+  },
 }
