@@ -5,10 +5,10 @@ return {
     spec = {
       -- name group keys
       { '<leader>f', group = 'Telescope' },
-      { 'gs', group = 'Surround', mode = { 'n', 'v' } },
+      { 'gs', group = 'Surround', mode = { 'n', 'x' } },
 
       -- hide mappings for cleaner menus
-      { '<leader>P', hidden = true },
+      { '<leader>P', hidden = true, mode = { 'n', 'x' } },
       { '<C-w>d', hidden = true },
       { '<C-w><C-d>', hidden = true },
 
