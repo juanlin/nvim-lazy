@@ -9,6 +9,7 @@ return {
 
       -- hide mappings for cleaner menus
       { '<leader>P', hidden = true, mode = { 'n', 'x' } },
+      { '<leader>E', hidden = true },
       { '<C-w>d', hidden = true },
       { '<C-w><C-d>', hidden = true },
 

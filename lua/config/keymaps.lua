@@ -3,7 +3,6 @@ vim.g.mapleader = ' '
 local map = vim.keymap.set
 
 -- General keybinds
-map('n', '<leader>e', '<Cmd>Ex<CR>', { desc = 'File Explorer' })
 map('n', '<leader>c', '<Cmd>HighlightColors Toggle<CR>', { desc = 'Toggle CSS colors' })
 map('n', '<Esc>', '<Cmd>nohlsearch<CR>')
 
