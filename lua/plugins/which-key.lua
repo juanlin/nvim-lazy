@@ -15,6 +15,11 @@ return {
 
       -- set as proxy to <C-w> (do not map elsewhere to avoid issues)
       { '<leader>w', proxy = '<C-w>', group = 'Window commands' },
+
+      -- assign custom icons to keymaps
+      { '<leader>y', icon = '', mode = { 'n', 'x' } },
+      { '<leader>p', icon = '', mode = { 'n', 'x' } },
+      { '<leader>e', icon = '' },
     },
     preset = 'helix', -- classic, modern, helix
   },
