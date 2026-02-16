@@ -2,7 +2,8 @@ return  {
   -- Show CSS colors
   'brenoprata10/nvim-highlight-colors',
   opts = {
-    render = 'foreground',  -- background, foreground, virtual
+    render = 'virtual',  -- background, foreground, virtual
+    virtual_symbol_position = 'eol' -- inline, eol, eow
   },
   config = function(_, opts)
     local hlc = require('nvim-highlight-colors')
