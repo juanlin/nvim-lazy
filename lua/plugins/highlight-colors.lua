@@ -2,7 +2,7 @@ return  {
   -- Show CSS colors
   'brenoprata10/nvim-highlight-colors',
   opts = {
-    render = 'virtual',  -- background, foreground, virtual
+    render = 'background',  -- background, foreground, virtual
     virtual_symbol_position = 'eol' -- inline, eol, eow
   },
   config = function(_, opts)
