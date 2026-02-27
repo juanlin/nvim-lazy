@@ -15,6 +15,6 @@ map('n', '<C-k>', '<C-w>k', { desc = 'Focus up' })
 map('n', '<C-l>', '<C-w>l', { desc = 'Focus right' })
 
 -- Easier interaction with the system clipboard
-map({ 'n', 'x' }, '<leader>y', '"+y', { desc = 'Copy to Clipboard' })
-map({ 'n', 'x' }, '<leader>p', '"+p', { desc = 'Paste Clipboard' })
-map({ 'n', 'x' }, '<leader>P', '"+P', { desc = 'Paste Clipboard before' })
+map({ 'n', 'x' }, '<leader>y', '"+y', { desc = 'Yank to OS clipboard' })
+map({ 'n', 'x' }, '<leader>p', '"+p', { desc = 'Paste OS clipboard' })
+map({ 'n', 'x' }, '<leader>P', '"+P', { desc = 'Paste OS clipboard before' })
