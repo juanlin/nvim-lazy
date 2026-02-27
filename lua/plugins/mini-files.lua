@@ -10,6 +10,10 @@ return {
       go_out_plus = 'h',
       go_out = 'H',
     },
+    options = {
+      -- Trash at ~/.local/share/nvim/mini.files/trash
+      permanent_delete = false,
+    },
     windows = {
       -- Enable preview and set to same width as focus
       preview = true,
