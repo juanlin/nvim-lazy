@@ -10,7 +10,7 @@ return {
         version = 'LuaJIT',
       },
       diagnostics = {
-        globals = { 'vim', 'MiniIcons' }
+        globals = { 'vim', 'MiniIcons', 'MiniFiles' }
       },
       signatureHelp = { enabled = true },
     },
