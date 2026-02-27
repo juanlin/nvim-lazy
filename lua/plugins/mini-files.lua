@@ -1,7 +1,13 @@
 return {
   'nvim-mini/mini.files',
   version = false,
-  opts = {},
+  opts = {
+    windows = {
+      -- Enable preview and set to same width as focus
+      preview = true,
+      width_preview = 50,
+    },
+  },
   keys = {
     {
       '<leader>e',
