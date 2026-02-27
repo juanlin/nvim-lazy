@@ -2,6 +2,14 @@ return {
   'nvim-mini/mini.files',
   version = false,
   opts = {
+    mappings = {
+      -- Close explorer after opening files by default
+      go_in_plus = 'l',
+      go_in = 'L',
+      -- Trim when going back by default
+      go_out_plus = 'h',
+      go_out = 'H',
+    },
     windows = {
       -- Enable preview and set to same width as focus
       preview = true,
