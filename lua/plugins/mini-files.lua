@@ -84,5 +84,17 @@ return {
         map_split(buf_id, '<C-v>', 'vertical')
       end,
     })
+
+    -- Set custom bookmarks
+    local set_mark = function(id, path, desc)
+      MiniFiles.set_bookmark(id, path, { desc = desc })
+    end
+    vim.api.nvim_create_autocmd('User', {
+      pattern = 'MiniFilesExplorerOpen',
+      callback = function()
+        set_mark('c', '~/.config', 'Config')
+        set_mark('d', '~/Downloads', 'Downloads')
+      end,
+    })
   end,
 }
