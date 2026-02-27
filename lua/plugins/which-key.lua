@@ -3,20 +3,20 @@ return {
   opts = {
     delay = 250,
     spec = {
-      -- name group keys
+      -- Name group keys
       { '<leader>f', group = 'Telescope' },
       { 'gs', group = 'Surround', mode = { 'n', 'x' } },
 
-      -- hide mappings for cleaner menus
+      -- Hide mappings for cleaner menus
       { '<leader>P', hidden = true, mode = { 'n', 'x' } },
       { '<leader>E', hidden = true },
       { '<C-w>d', hidden = true },
       { '<C-w><C-d>', hidden = true },
 
-      -- set as proxy to <C-w> (do not map elsewhere to avoid issues)
+      -- Set as proxy to <C-w> (do not map elsewhere to avoid issues)
       { '<leader>w', proxy = '<C-w>', group = 'Window commands' },
 
-      -- assign custom icons to keymaps
+      -- Assign custom icons to keymaps
       { '<leader>y', icon = '', mode = { 'n', 'x' } },
       { '<leader>p', icon = '', mode = { 'n', 'x' } },
       { '<leader>e', icon = '' },
@@ -27,7 +27,7 @@ return {
     local wk = require('which-key')
     wk.setup(opts)
 
-    -- pressing <Space> enters Sticky mode (Hydra mode)
+    -- Pressing <Space> enters Sticky mode (Hydra mode)
     vim.keymap.set('n', '<C-w><Space>', function()
       wk.show({ keys = '<C-w>', loop = true, })
     end, { desc = 'Sticky Mode' })
