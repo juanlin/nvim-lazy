@@ -19,7 +19,7 @@ return {
       -- Assign custom icons to keymaps
       { '<leader>y', icon = '', mode = { 'n', 'x' } },
       { '<leader>p', icon = '', mode = { 'n', 'x' } },
-      { '<leader>e', icon = '' },
+      { '<leader>e', icon = { icon = '󰈔', color = 'cyan' } },
     },
     preset = 'helix', -- classic, modern, helix
   },
