@@ -14,6 +14,8 @@ return {
     ts.install(languages)
 
     vim.api.nvim_create_autocmd('FileType', {
+      desc = 'Set up nvim-treesitter highlighting and indentation',
+      group = vim.api.nvim_create_augroup('nvim-ts', { clear = true }),
       pattern = languages,
       callback = function()
         -- Syntax highlighting, provided by Neovim
