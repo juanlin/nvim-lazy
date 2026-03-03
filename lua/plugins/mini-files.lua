@@ -65,13 +65,23 @@ return {
       vim.keymap.set('n', lhs, rhs, { buffer = buf_id, desc = desc })
     end
 
+    -- Set focused directory as current working directory
+    local set_cwd = function()
+      local path = (MiniFiles.get_fs_entry() or {}).path
+      if path == nil then return vim.notify('Cursor is not on valid entry') end
+      vim.fn.chdir(vim.fs.dirname(path))
+    end
+
     -- Actually bind keymaps to toggle hidden, split open, etc.
+    local minifiles_settings = vim.api.nvim_create_augroup('miniFSetup', { clear = true })
     vim.api.nvim_create_autocmd('User', {
+      group = minifiles_settings,
       pattern = 'MiniFilesBufferCreate',
       callback = function(args)
         local buf_id = args.data.buf_id
         map_split(buf_id, '<C-s>', 'horizontal')
         map_split(buf_id, '<C-v>', 'vertical')
+        vim.keymap.set('n', 'g~', set_cwd, { buffer = buf_id, desc = 'Set cwd' })
       end,
     })
 
@@ -80,6 +90,7 @@ return {
       MiniFiles.set_bookmark(id, path, { desc = desc })
     end
     vim.api.nvim_create_autocmd('User', {
+      group = minifiles_settings,
       pattern = 'MiniFilesExplorerOpen',
       callback = function()
         set_mark('c', '~/.config', 'Config')
