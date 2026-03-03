@@ -1,8 +1,16 @@
+-- LuaJIT local lookup perf
 local sfind = string.find
 
+-- Use set instead of list for direct lookup
+local ignore_set = {
+  ['.git'] = true,
+  ['.DS_Store'] = true,
+  ['Icon\r'] = true,
+  ['__pycache__'] = true,
+}
+
 local filter_ignore = function(fs_entry)
-  local ignorelist = { '.git', '.DS_Store' }
-  return not vim.tbl_contains(ignorelist, fs_entry.name)
+  return not ignore_set[fs_entry.name]
 end
 
 return {
@@ -82,6 +90,7 @@ return {
 
     local filter_dot = function(fs_entry)
       local is_dot = vim.startswith(fs_entry.name, '.')
+      -- '1, true' for plain search instead of pattern/regex-like
       local is_in_path = sfind(MiniFiles.get_fs_entry().path, fs_entry.path, 1, true) ~= nil
       return not is_dot or is_in_path
     end
