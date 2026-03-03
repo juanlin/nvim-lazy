@@ -20,10 +20,10 @@ return {
       width_preview = 50,
     },
     content = {
-      filter = function(fs_entry)
-        local ignorelist = { '.git', '.DS_Store' }
-        return not vim.tbl_contains(ignorelist, fs_entry.name)
-      end
+      -- filter = function(fs_entry)
+      --   local ignorelist = { '.git', '.DS_Store' }
+      --   return not vim.tbl_contains(ignorelist, fs_entry.name)
+      -- end
     },
   },
   keys = {
@@ -70,6 +70,29 @@ return {
       local path = (MiniFiles.get_fs_entry() or {}).path
       if path == nil then return vim.notify('Cursor is not on valid entry') end
       vim.fn.chdir(vim.fs.dirname(path))
+      vim.notify('cwd set: ' .. vim.fs.dirname(path))
+    end
+
+    -- Create mapping to show/hide dot-files
+    local show_dotfiles = true
+    local filter_show = function(fs_entry)
+      return true
+    end
+    local filter_hide = function(fs_entry)
+      return not vim.startswith(fs_entry.name, '.')
+    end
+    local toggle_dotfiles = function()
+      -- if focused directory starts with '.', trim left to keep focus
+      local path = (MiniFiles.get_fs_entry() or {}).path
+      if path ~= nil then
+        local basedir = vim.fs.basename(vim.fs.dirname(path))
+        if vim.startswith(basedir, '.') then
+          MiniFiles.trim_left()
+        end
+      end
+      show_dotfiles = not show_dotfiles
+      local new_filter = show_dotfiles and filter_show or filter_hide
+      MiniFiles.refresh({ content = { filter = new_filter } })
     end
 
     -- Actually bind keymaps to toggle hidden, split open, etc.
@@ -82,6 +105,7 @@ return {
         map_split(buf_id, '<C-s>', 'horizontal')
         map_split(buf_id, '<C-v>', 'vertical')
         vim.keymap.set('n', 'g~', set_cwd, { buffer = buf_id, desc = 'Set cwd' })
+        vim.keymap.set('n', 'g.', toggle_dotfiles, { buffer = buf_id })
       end,
     })
 
