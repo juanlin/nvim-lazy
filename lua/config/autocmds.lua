@@ -1,19 +1,18 @@
-local general_settings = vim.api.nvim_create_augroup('GeneralSettings', { clear = true })
+-- Return cursor ignore list (exact match)
+local ignore_ft = {
+  gitcommit = true,
+  gitrebase = true,
+  xxd = true,
+  tutor = true,
+}
 
 -- Localize API calls (LuaJIT optimization)
-local sfind = string.find
 local get_mark = vim.api.nvim_buf_get_mark
 local line_count = vim.api.nvim_buf_line_count
 local set_cursor = vim.api.nvim_win_set_cursor
 local get_cursor = vim.api.nvim_win_get_cursor
 
--- Return cursor ignore list (exact match)
-local ignore_ft = {
-  commit = true,
-  xxd = true,
-  gitrebase = true,
-  tutor = true,
-}
+local general_settings = vim.api.nvim_create_augroup('GeneralSettings', { clear = true })
 
 vim.api.nvim_create_autocmd('FileType', {
   desc = "Don't auto-insert comments on new lines",
@@ -32,8 +31,7 @@ vim.api.nvim_create_autocmd('BufWinEnter', {
     local ft = vim.bo.filetype
     -- print(vim.inspect(ft))
 
-    if sfind(ft, 'commit', 1, true) ~= nil
-      or ignore_ft[ft]
+    if ignore_ft[ft]
       or vim.wo.diff
       or get_cursor(0)[1] > 1 -- line was specified
     then
