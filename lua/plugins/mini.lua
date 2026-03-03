@@ -31,4 +31,16 @@ return {
     event = 'CmdlineEnter',
     opts = {},
   },
+  { -- Draw vertical line on current scope
+    'nvim-mini/mini.indentscope',
+    version = false,
+    event = 'VeryLazy',
+    opts = {
+      options = {
+        -- Placing cursor on function header gets scope of body
+        try_as_border = true,
+      },
+      symbol = '│',
+    },
+  },
 }
