@@ -1,3 +1,10 @@
+local sfind = string.find
+
+local filter_ignore = function(fs_entry)
+  local ignorelist = { '.git', '.DS_Store' }
+  return not vim.tbl_contains(ignorelist, fs_entry.name)
+end
+
 return {
   'nvim-mini/mini.files',
   version = false,
@@ -20,10 +27,7 @@ return {
       width_preview = 50,
     },
     content = {
-      -- filter = function(fs_entry)
-      --   local ignorelist = { '.git', '.DS_Store' }
-      --   return not vim.tbl_contains(ignorelist, fs_entry.name)
-      -- end
+      filter = filter_ignore,
     },
   },
   keys = {
@@ -75,17 +79,21 @@ return {
 
     -- Create mapping to show/hide dot-files
     local show_dotfiles = true
-    local filter_show = function(fs_entry)
-      return true
-    end
-    local filter_hide = function(fs_entry)
+
+    local filter_dot = function(fs_entry)
       local is_dot = vim.startswith(fs_entry.name, '.')
-      local is_in_path = string.find(MiniFiles.get_fs_entry().path, fs_entry.path)
+      local is_in_path = sfind(MiniFiles.get_fs_entry().path, fs_entry.path, 1, true) ~= nil
       return not is_dot or is_in_path
     end
+
     local toggle_dotfiles = function()
       show_dotfiles = not show_dotfiles
-      local new_filter = show_dotfiles and filter_show or filter_hide
+      local new_filter = function(fs_entry)
+        if not filter_ignore(fs_entry) then
+          return false
+        end
+        return show_dotfiles or filter_dot(fs_entry)
+      end
       MiniFiles.refresh({ content = { filter = new_filter } })
     end
 
@@ -99,7 +107,7 @@ return {
         map_split(buf_id, '<C-s>', 'horizontal')
         map_split(buf_id, '<C-v>', 'vertical')
         vim.keymap.set('n', 'g~', set_cwd, { buffer = buf_id, desc = 'Set cwd' })
-        vim.keymap.set('n', 'g.', toggle_dotfiles, { buffer = buf_id })
+        vim.keymap.set('n', 'g.', toggle_dotfiles, { buffer = buf_id, desc = 'Show/hide dotfiles' })
       end,
     })
 
