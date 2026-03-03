@@ -26,17 +26,9 @@ return {
         -- Folds using treesitter expr, provided by Neovim
         vim.wo[0][0].foldexpr = 'v:lua.vim.treesitter.foldexpr()'
         vim.wo[0][0].foldmethod = 'expr'
-      end,
-    })
-
-    vim.api.nvim_create_autocmd({ 'BufReadPost', 'BufWinEnter' }, {
-      desc = 'Open all folds upon opening file',
-      group = ts_settings,
-      pattern = '*',
-      callback = function()
-        vim.defer_fn(function()
-          vim.cmd('normal! zR')
-        end, 0) -- wait for TS to load
+        -- Start every file with folds open
+        vim.opt.foldlevel = 99
+        vim.opt.foldlevelstart = 99
       end,
     })
   end
