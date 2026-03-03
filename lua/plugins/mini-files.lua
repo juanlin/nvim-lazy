@@ -79,17 +79,11 @@ return {
       return true
     end
     local filter_hide = function(fs_entry)
-      return not vim.startswith(fs_entry.name, '.')
+      local is_dot = vim.startswith(fs_entry.name, '.')
+      local is_in_path = string.find(MiniFiles.get_fs_entry().path, fs_entry.path)
+      return not is_dot or is_in_path
     end
     local toggle_dotfiles = function()
-      -- if focused directory starts with '.', trim left to keep focus
-      local path = (MiniFiles.get_fs_entry() or {}).path
-      if path ~= nil then
-        local basedir = vim.fs.basename(vim.fs.dirname(path))
-        if vim.startswith(basedir, '.') then
-          MiniFiles.trim_left()
-        end
-      end
       show_dotfiles = not show_dotfiles
       local new_filter = show_dotfiles and filter_show or filter_hide
       MiniFiles.refresh({ content = { filter = new_filter } })
