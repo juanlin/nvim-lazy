@@ -40,7 +40,7 @@ return {
         -- Placing cursor on function header gets scope of body
         try_as_border = true,
       },
-      symbol = '│',
+      symbol = '',
     },
   },
 }
