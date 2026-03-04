@@ -26,10 +26,10 @@ return {
         -- Folds using treesitter expr, provided by Neovim
         vim.wo[0][0].foldexpr = 'v:lua.vim.treesitter.foldexpr()'
         vim.wo[0][0].foldmethod = 'expr'
-        -- Start every file with folds open
-        vim.opt.foldlevel = 99
-        vim.opt.foldlevelstart = 99
       end,
     })
+    -- Start every file with folds open
+    vim.opt.foldlevel = 99
+    vim.opt.foldlevelstart = 99
   end
 }
