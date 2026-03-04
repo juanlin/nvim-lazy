@@ -1,5 +1,5 @@
 vim.lsp.enable({
-  'lua_ls',
+  'lua_ls', 'rust_analyzer',
 })
 
 vim.o.winborder = 'rounded'
