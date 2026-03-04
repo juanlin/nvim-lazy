@@ -4,9 +4,9 @@ vim.lsp.enable({
 
 vim.o.winborder = 'rounded'
 
-local lsp_setup = vim.api.nvim_create_augroup('LspSetup', { clear = true })
+local lsp_config = vim.api.nvim_create_augroup('LspConfig', { clear = true })
 vim.api.nvim_create_autocmd('LspAttach', {
-  group = lsp_setup,
+  group = lsp_config,
   callback = function(ev)
     local client = vim.lsp.get_client_by_id(ev.data.client_id)
     if client:supports_method('textDocument/completion') then
