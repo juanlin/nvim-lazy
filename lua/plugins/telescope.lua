@@ -22,6 +22,8 @@ return {
           ['<C-u>'] = false
         },
       },
+      -- Explicitly ignore .git for "Telescope oldfiles"
+      file_ignore_patterns = { '.git' },
     },
   },
   -- Lazy-load on command
