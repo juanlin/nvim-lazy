@@ -4,14 +4,29 @@ vim.lsp.enable({
 
 vim.o.winborder = 'rounded'
 
-local lsp_config = vim.api.nvim_create_augroup('LspConfig', { clear = true })
 vim.api.nvim_create_autocmd('LspAttach', {
-  group = lsp_config,
-  callback = function(ev)
-    local client = vim.lsp.get_client_by_id(ev.data.client_id)
+  group = vim.api.nvim_create_augroup('user-lsp-attach', { clear = true }),
+  callback = function(event)
+    -- Easier LSP mappings
+    local map = function(keys, func, desc, mode)
+      mode = mode or 'n'
+      vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
+    end
+
+    -- Rename the variable under cursor
+    map('grn', vim.lsp.buf.rename, 'Rename')
+
+    -- Execute a code action
+    map('gra', vim.lsp.buf.code_action, 'Goto Code Action', { 'n', 'x' })
+
+    -- Goto Declaration (not goto definition!)
+    map('grD', vim.lsp.buf.declaration, 'Goto Declaration')
+
+    -- Autocomplete
+    local client = vim.lsp.get_client_by_id(event.data.client_id)
     if client:supports_method('textDocument/completion') then
       vim.opt.completeopt = { 'menu', 'menuone', 'noinsert', 'fuzzy', 'popup' }
-      vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
+      vim.lsp.completion.enable(true, client.id, event.buf, { autotrigger = true })
       vim.keymap.set('i', '<C-Space>', function() vim.lsp.completion.get() end)
     end
   end,
