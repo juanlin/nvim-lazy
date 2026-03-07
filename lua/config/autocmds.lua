@@ -12,7 +12,7 @@ local line_count = vim.api.nvim_buf_line_count
 local set_cursor = vim.api.nvim_win_set_cursor
 local get_cursor = vim.api.nvim_win_get_cursor
 
-local general_settings = vim.api.nvim_create_augroup('GeneralSettings', { clear = true })
+local general_settings = vim.api.nvim_create_augroup('my-general-settings', { clear = true })
 
 vim.api.nvim_create_autocmd('FileType', {
   desc = "Don't auto-insert comments on new lines",

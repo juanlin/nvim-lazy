@@ -109,7 +109,7 @@ return {
     end
 
     -- Actually bind keymaps to toggle hidden, split open, etc.
-    local minifiles_settings = vim.api.nvim_create_augroup('miniFSetup', { clear = true })
+    local minifiles_settings = vim.api.nvim_create_augroup('my-minif-settings', { clear = true })
     vim.api.nvim_create_autocmd('User', {
       group = minifiles_settings,
       pattern = 'MiniFilesBufferCreate',

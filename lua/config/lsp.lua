@@ -5,7 +5,7 @@ vim.lsp.enable({
 vim.o.winborder = 'rounded'
 
 vim.api.nvim_create_autocmd('LspAttach', {
-  group = vim.api.nvim_create_augroup('user-lsp-attach', { clear = true }),
+  group = vim.api.nvim_create_augroup('my-lsp-attach', { clear = true }),
   callback = function(event)
     -- Easier LSP mappings
     local map = function(keys, func, desc, mode)
