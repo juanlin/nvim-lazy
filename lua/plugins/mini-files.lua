@@ -117,7 +117,7 @@ return {
         local buf_id = args.data.buf_id
         map_split(buf_id, '<C-s>', 'horizontal')
         map_split(buf_id, '<C-v>', 'vertical')
-        vim.keymap.set('n', 'g~', set_cwd, { buffer = buf_id, desc = 'Set cwd' })
+        vim.keymap.set('n', 'g@', set_cwd, { buffer = buf_id, desc = 'Set cwd' })
         vim.keymap.set('n', 'g.', toggle_dotfiles, { buffer = buf_id, desc = 'Show/hide dotfiles' })
       end,
     })
