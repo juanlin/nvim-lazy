@@ -4,7 +4,7 @@ return {
   priority = 1000,
   opts = {
     flavour = 'macchiato',  -- latte, frappe, macchiato, mocha
-    transparent_background = true,
+    -- transparent_background = true,
     -- auto_integrations = true,
   },
   config = function(_, opts)
