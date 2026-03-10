@@ -43,4 +43,10 @@ return {
       symbol = '',
     },
   },
+  { -- Pop-up notifications
+    'nvim-mini/mini.notify',
+    version = false,
+    -- event = 'VeryLazy',
+    opts = {},
+  },
 }

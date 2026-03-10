@@ -7,6 +7,7 @@
   "mini.files": { "branch": "main", "commit": "57eb96a828f80efb8095a611e3aafcfa43548f8b" },
   "mini.icons": { "branch": "main", "commit": "5b9076dae1bfbe47ba4a14bc8b967cde0ab5d77e" },
   "mini.indentscope": { "branch": "main", "commit": "065c7713fb4cd0124fe1462f15f27feeb8b04406" },
+  "mini.notify": { "branch": "main", "commit": "e506fb6da26c0a31ee6b1d2eb99626cb147f28ca" },
   "mini.surround": { "branch": "main", "commit": "d205d1741d1fcc1f3117b4e839bf00f74ad72fa2" },
   "nvim-highlight-colors": { "branch": "main", "commit": "e2cb22089cc2358b2b995c09578224f142de6039" },
   "nvim-treesitter": { "branch": "main", "commit": "5cb05e1b0fa3c469958a2b26f36b3fe930af221c" },
