@@ -21,7 +21,7 @@ require('lazy').setup({
     { import = 'plugins' },
   },
   -- colorscheme that will be used when installing plugins
-  install = { colorscheme = { 'catppuccin' } },
+  install = { colorscheme = { 'catppuccin-nvim' } },
   -- Silence config change alerts
   change_detection = { notify = false },
   -- Disable LuaRocks support completely
