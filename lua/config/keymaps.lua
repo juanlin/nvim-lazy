@@ -3,7 +3,6 @@ vim.g.mapleader = ' '
 local map = vim.keymap.set
 
 -- General keybinds
-map('n', '<leader>c', '<Cmd>HighlightColors Toggle<CR>', { desc = 'Toggle CSS colors' })
 map('n', '<Esc>', '<Cmd>nohlsearch<CR>')
 
 -- Telescope, see telescope.lua
