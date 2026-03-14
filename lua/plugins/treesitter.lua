@@ -4,14 +4,12 @@ return {
   build = ':TSUpdate',
   branch = 'main',
   config = function()
-    local ts = require('nvim-treesitter')
-
     local languages = {
       'lua', 'rust', 'python', 'go',
       'typescript', 'tsx', 'javascript', 'css',
       'regex', 'markdown', 'c',
     }
-    ts.install(languages)
+    require('nvim-treesitter').install(languages)
 
     vim.api.nvim_create_autocmd('FileType', {
       desc = 'Set up nvim-treesitter highlighting and indentation',
