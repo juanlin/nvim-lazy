@@ -86,6 +86,14 @@ return {
       vim.notify('cwd set: ' .. vim.fs.dirname(path))
     end
 
+    -- Yank in register full path of entry under cursor
+    local yank_path = function()
+      local path = (MiniFiles.get_fs_entry() or {}).path
+      if path == nil then return vim.notify('Cursor is not on valid entry') end
+      vim.fn.setreg(vim.v.register, path)
+      vim.notify('path yanked: ' .. path)
+    end
+
     -- Create mapping to show/hide dot-files
     local show_dotfiles = true
 
@@ -118,6 +126,7 @@ return {
         map_split(buf_id, '<C-s>', 'horizontal')
         map_split(buf_id, '<C-v>', 'vertical')
         vim.keymap.set('n', 'g@', set_cwd, { buffer = buf_id, desc = 'Set cwd' })
+        vim.keymap.set('n', 'gy', yank_path, { buffer = buf_id, desc = 'Yank path' })
         vim.keymap.set('n', 'g.', toggle_dotfiles, { buffer = buf_id, desc = 'Show/hide dotfiles' })
       end,
     })
