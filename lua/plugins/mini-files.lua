@@ -140,7 +140,8 @@ return {
       pattern = 'MiniFilesExplorerOpen',
       callback = function()
         set_mark('c', '~/.config', 'Config')
-        set_mark('d', '~/Developer', 'Developer')
+        set_mark('d', '~/Downloads', 'Downloads')
+        set_mark('v', '~/Developer', 'Developer')
       end,
     })
   end,
