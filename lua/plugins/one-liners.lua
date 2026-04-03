@@ -7,4 +7,8 @@ return {
     opts = { duration_multiplier = 0.30, },
     event = 'VeryLazy',
   },
+  {
+    -- Collection of LSP server configurations
+    'neovim/nvim-lspconfig',
+  },
 }

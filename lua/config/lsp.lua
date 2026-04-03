@@ -1,8 +1,12 @@
 vim.lsp.enable({
-  'lua_ls', 'rust_analyzer',
+  'lua_ls',
+  'rust_analyzer',
+  'pyright',
 })
 
+-- Nicer borders on windows and popups
 vim.o.winborder = 'rounded'
+vim.o.pumborder = 'rounded'
 
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('my-lsp-attach', { clear = true }),
